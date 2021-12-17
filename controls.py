@@ -81,7 +81,7 @@ def pause_game(screen, font_b):
 ###
 
 def in_platform(platforms, main_character):
-    """ Отслеживание соприкосновения платформы и персонажа """
+    """ Коллизия платформы и персонажа """
     for platform in platforms:
         if platform.rect.colliderect(main_character.rect.x, main_character.rect.y + main_character.centery,
                                      main_character.width, main_character.height):
