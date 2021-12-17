@@ -44,7 +44,7 @@ def update(bg_image, screen, main_character, platforms, scroll, bg_scroll, score
 
 def max_score():
     """ Рекорд игрока """
-    score = open('bestresult.txt', 'r+').readline()
+    score = open('bestresult.txt', 'w+').readline()
     if score == '':
         score = 0
     return int(score)
