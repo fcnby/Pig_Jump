@@ -50,7 +50,7 @@ def run():
                 g_o = False
                 if score > max_score:
                     max_score = score
-                    open('bestresult.txt', 'w').write(str(max_score))
+                    open('bestresult.txt', 'w+').write(str(max_score))
                 score = 0
                 main_character = character(screen)
                 platforms.empty()
