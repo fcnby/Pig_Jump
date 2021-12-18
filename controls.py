@@ -9,7 +9,10 @@ from g_over import draw_text
 
 
 def events(main_character):
-    """Обработка событий"""
+    """Обработка событий
+    :param main_character: главный персонаж
+    :return: None
+    """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -33,7 +36,16 @@ def events(main_character):
 
 
 def update(bg_image, screen, main_character, platforms, scroll, bg_scroll, score, font_b):
-    """Обновление экрана"""
+    """Обновление экрана
+    :param bg_image: переменная, отвечающая за фоновое изображение
+    :param screen: переменная, которая отражает экран вывода
+    :param main_character: переменная, которая отвечающая за главного героя
+    :param scroll: переменная, которая отвечает за перемещение по y
+    :param bg_scroll: переменная, которая отвечает за перемещение фона
+    :param score: переменная, которая отражает очки игрока
+    :param font_b: переменная, которая отвечает за шрифт
+    :return: None
+    """
     main_character.output()  # главный персонаж
     platforms.update(scroll, score)  # обновленние платформ
     platforms.draw(screen)  # отрисовка платформ
@@ -43,7 +55,9 @@ def update(bg_image, screen, main_character, platforms, scroll, bg_scroll, score
 
 
 def max_score():
-    """ Рекорд игрока """
+    """ Рекорд игрока
+    :return: очки игрока из файла
+    """
     score = open('bestresult.txt', 'w+').readline()
     if score == '':
         score = 0
@@ -51,7 +65,11 @@ def max_score():
 
 
 def create_platforms(platforms, platform):
-    """ Создание платформ """
+    """ Создание платформ
+    :param platforms: переменная, отвечающая за группу платформ, находящихся на экране
+    :param platform: переменная, отвечающая за последнюю платформу
+    :return: последнюю платформу
+    """
     if len(platforms) < 10:
         p_x = randint(0, 400 - 57)
         p_y = (platform.rect.y - randint(70, 115))
@@ -62,7 +80,11 @@ def create_platforms(platforms, platform):
 
 # Взято у проекта прошлого года PvP_game
 def pause_game(screen, font_b):
-    """Функция, которая ставит игру на паузу при нажатии кнопки ESC."""
+    """Функция, которая ставит игру на паузу при нажатии кнопки ESC
+    :param screen: переменная, которая отражает экран вывода
+    :param font_b: переменная, которая отвечает за шрифт
+    :return: None
+    """
     paused = True
     while paused:
         for event in pygame.event.get():
@@ -81,7 +103,11 @@ def pause_game(screen, font_b):
 ###
 
 def in_platform(platforms, main_character):
-    """ Коллизия платформы и персонажа """
+    """ Коллизия платформы и персонажа
+    :param platforms: переменная, отвечающая за группу платформ, находящихся на экране
+    :param main_character: переменная, которая отвечающая за главного героя
+    :return: None
+    """
     for platform in platforms:
         if platform.rect.colliderect(main_character.rect.x, main_character.rect.y + main_character.centery,
                                      main_character.width, main_character.height):
