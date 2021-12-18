@@ -22,7 +22,6 @@ class character:
         self.mright = False
         self.mleft = False
         self.jump_vel = 0
-        self.gravity = 1
         self.flip = False
 
     def output(self):
@@ -30,7 +29,7 @@ class character:
         self.screen.blit(pygame.transform.flip(self.image, self.flip, False), self.rect)
 
     def update_character(self):
-        """Обновление позиции героя """
+        """ Обновление позиции героя """
         scroll = 0
         self.centerx = 0
         self.centery = 0
@@ -41,8 +40,8 @@ class character:
             self.centerx = + 15
             self.flip = True
 
-        # Постонный прыжок
-        self.jump_vel += self.gravity
+        # Постоянный прыжок
+        self.jump_vel += 1
         self.centery += self.jump_vel
 
         # проверка на скролл
