@@ -18,7 +18,11 @@ class Platform(pygame.sprite.Sprite):
         self.counter = 0
 
     def update(self, scroll, score):
-        """обновление платформы"""
+        """обновление платформы
+        :param scroll: переменная, которая отвечает за перемещение по y
+        :param score: переменная, которая отражает текущие очки персонажа
+        :return: None
+        """
         self.rect.y += scroll
         if self.motion == 1 and score > 50:
             self.rect.x += self.direction
