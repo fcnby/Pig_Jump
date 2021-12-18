@@ -58,11 +58,25 @@ def max_score():
     """ Рекорд игрока
     :return: очки игрока из файла
     """
-    score = open('bestresult.txt', 'w+').readline()
+    file = open('bestresult.txt', 'w+')
+    score = file.readline()
+    file.close()
     if score == '':
         score = 0
     return int(score)
 
+def overwriting_max_score(score,max_score):
+    """ Рекорд игрока
+    :param score: переменная, которая отражает текущие очки персонажа
+    :param max_score: переменная, которая отражает максимальные очки персонажа
+    :return: рекорд игрока
+    """
+    if score > max_score:
+        max_score = score
+        file = open('bestresult.txt', 'w+')
+        file.write(str(max_score))
+        file.close()
+    return max_score
 
 def create_platforms(platforms, platform):
     """ Создание платформ
