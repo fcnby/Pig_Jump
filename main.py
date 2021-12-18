@@ -48,9 +48,7 @@ def run():
             key = pygame.key.get_pressed()
             if key[pygame.K_SPACE]:
                 g_o = False
-                if score > max_score:
-                    max_score = score
-                    open('bestresult.txt', 'w+').write(str(max_score))
+                max_score = controls.overwriting_max_score(score,max_score)
                 score = 0
                 main_character = character(screen)
                 platforms.empty()
