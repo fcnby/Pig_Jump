@@ -40,6 +40,7 @@ def update(bg_image, screen, main_character, platforms, scroll, bg_scroll, score
     :param bg_image: переменная, отвечающая за фоновое изображение
     :param screen: переменная, которая отражает экран вывода
     :param main_character: переменная, которая отвечающая за главного героя
+    :param platforms: переменная, которая отвечает за группу платформ
     :param scroll: переменная, которая отвечает за перемещение по y
     :param bg_scroll: переменная, которая отвечает за перемещение фона
     :param score: переменная, которая отражает очки игрока
@@ -68,7 +69,8 @@ def max_score():
         score = 0
     return int(score)
 
-def overwriting_max_score(score,max_score):
+
+def overwriting_max_score(score, max_score):
     """ Рекорд игрока
     :param score: переменная, которая отражает текущие очки персонажа
     :param max_score: переменная, которая отражает максимальные очки персонажа
@@ -80,6 +82,7 @@ def overwriting_max_score(score,max_score):
         file.write(str(max_score))
         file.close()
     return max_score
+
 
 def create_platforms(platforms, platform):
     """ Создание платформ
