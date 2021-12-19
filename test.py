@@ -33,8 +33,11 @@ class GameTests(unittest.TestCase):
         g = open('bestresult.txt', 'w+')
         max_score = overwriting_max_score(100,15)
         f = g.readline()
+        g.truncate(0)
         g.close()
         self.assertEqual(f,'100')
+
+
 
 if __name__ == "__main__":
     unittest.main()
