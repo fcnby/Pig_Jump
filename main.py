@@ -29,8 +29,7 @@ def run():
     while True:
         clock.tick(FPS)
         if not g_o:
-            pause = controls.events(main_character)
-            if pause == 1:
+            if controls.events(main_character) == True:
                 controls.pause_game(screen, font_b)
             scroll = main_character.update_character()
             platform = controls.create_platforms(platforms, platform)
