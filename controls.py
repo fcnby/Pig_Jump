@@ -32,7 +32,7 @@ def events(main_character):
                 main_character.mleft = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                return 1
+                return True
 
 
 def update(bg_image, screen, main_character, platforms, scroll, bg_scroll, score, font_b):
