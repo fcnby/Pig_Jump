@@ -65,7 +65,7 @@ def max_score():
         if not score.isdigit():
             score = 0
         file.close()
-    except:
+    except Exception:
         score = 0
     return int(score)
 
