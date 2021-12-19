@@ -23,12 +23,18 @@ class GameTests(unittest.TestCase):
         self.assertEqual(max_score,16)
 
     def test_overwriting_max_score(self):
-        max_score = overwriting_max_score(10,15)
         g = open('bestresult.txt', 'w+')
+        max_score = overwriting_max_score(10,15)
         f = g.readline()
         g.close()
-        print(f,'')
+        self.assertEqual(f,'')
 
+    def test_overwriting_max_score2(self):
+        g = open('bestresult.txt', 'w+')
+        max_score = overwriting_max_score(100,15)
+        f = g.readline()
+        g.close()
+        self.assertEqual(f,'100')
 
 if __name__ == "__main__":
     unittest.main()
