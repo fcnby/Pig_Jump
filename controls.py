@@ -58,10 +58,13 @@ def max_score():
     """ Рекорд игрока
     :return: очки игрока из файла
     """
-    file = open('bestresult.txt', 'w+')
-    score = file.readline()
-    file.close()
-    if score == '':
+    try:
+        file = open('bestresult.txt', 'r')
+        score = file.readline()
+        if not score.isdigit():
+            score = 0
+        file.close()
+    except:
         score = 0
     return int(score)
 
